@@ -1,14 +1,14 @@
 class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
-  url "https://github.com/vim/vim/archive/v8.0.0562.tar.gz"
-  sha256 "15fe36f513b7a89fa2477846c43d1e7d57826a1cc7fcaa772ec081bb0443d1c8"
+  url "https://github.com/vim/vim/archive/v8.0.0586.tar.gz"
+  sha256 "2525d2954a4a020583f569e65d7d4912f976bd6ed93388214787c9ff26553e44"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "3763df59732e5a8fb4c5c014a20862e553ba7e49ab421de305dc22a95ee92876" => :sierra
-    sha256 "8987bcf567e5a031889b99074bad029f9015109c970c3b61cf3a67974e036774" => :el_capitan
-    sha256 "10e78c782c9764c2e92267cfb83fde36edcda38bbdb0e9f5b5aec6edbb5b9aaf" => :yosemite
+    sha256 "0067bb3a58049056b900b3ef436abab8dc3730417c0ed3898855be256343cf29" => :sierra
+    sha256 "ad1a08476c92af0859275bf7d8725cb5c9b6e0b98da72d65065220d150b93e07" => :el_capitan
+    sha256 "4aa42fa04914d4c7dde342ee2eddc9d3da8c2c9b167d151433ffc4c3aad3ff94" => :yosemite
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"

@@ -1,14 +1,14 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2017.03.06.00.tar.gz"
-  sha256 "e48507f08cb3ec071d756c2a3c49177a99566566375ab7fb0f351fcb8690ada1"
+  url "https://github.com/facebook/folly/archive/v2017.04.24.00.tar.gz"
+  sha256 "ae853a1e24d15cd03511a60dbf01377d35a6046ba2c494a2d031557c7c6da647"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "7fdb7ded2e05c95d1b00f48ae6d609bcf10ac66c5b0694d8cc741c7d1e52d32a" => :sierra
-    sha256 "9111e934c9b6596f82b7925f7b5ebd82d6a2649e42068b1fcdf3e3a44be3aedd" => :el_capitan
+    sha256 "ae957c8f95baa0d843f0b93486a55422b57e102e9305e5e16e40b89e8a4bb6d8" => :sierra
+    sha256 "2df9b2914579880e621c9d259be62687c1298e38b8bfe73fbc7797c85ca5d90d" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -38,13 +38,6 @@ class Folly < Formula
     ENV.cxx11
 
     cd "folly" do
-      # Fix "typedef redefinition with different types ('uint8_t' (aka 'unsigned
-      # char') vs 'enum clockid_t')"
-      # Reported 9 Mar 2017 https://github.com/facebook/folly/issues/557
-      if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-        inreplace "portability/Time.h", "typedef uint8_t clockid_t;", ""
-      end
-
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
                             "--disable-dependency-tracking"
